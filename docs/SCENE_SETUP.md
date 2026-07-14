@@ -78,3 +78,18 @@ Play drücken:
 
 Damit lässt sich das Kern-Gefühl (Zielen, Telegraph ausweichen per
 Dodge) bereits solo gegen den Dummy prüfen, bevor Netzwerk dazukommt.
+
+## 8. Optional: Match-Flow testen (Phase 4)
+
+1. Leeres GameObject `Match` anlegen mit den Komponenten `MatchManager`
+   und `MatchHud`.
+2. Pro Team mindestens einen Spawnpunkt: leeres GameObject mit
+   `SpawnPoint`-Komponente, Team einstellen, in der Arena platzieren
+   (Blickrichtung = Spawn-Ausrichtung; Gizmo zeigt sie an).
+3. Wichtig: Für Match-Tests am Dummy die `TrainingDummy`-Komponente
+   **entfernen** (nur `Health` behalten) — ihr Auto-Respawn würde sonst
+   mit dem Runden-Reset kollidieren.
+
+Ablauf: Countdown → Runde → Team tot oder Zeit abgelaufen → Reset an
+den Spawnpunkten. Erster mit 3 Rundensiegen gewinnt, `R` startet ein
+Rematch. Solo killst du einfach den Dummy, um den Flow zu sehen.
