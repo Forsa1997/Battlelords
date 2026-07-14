@@ -37,6 +37,11 @@ Dauert ca. 15 Minuten.
 
 ## 4. Abilities anlegen
 
+> Alternativ: gleich die beiden MVP-Klassen aus
+> [CLASSES.md](CLASSES.md) als Assets anlegen und das Class-Asset in
+> `AbilityCaster → Class Definition` ziehen — das überschreibt die
+> Slots automatisch.
+
 1. Rechtsklick in `Assets/_Project/` → *Create → Battlelords → Ability*.
 2. Zwei Assets anlegen:
    - **Feuerball**: Cast Type `Projectile`, Damage 150, Cooldown 2,

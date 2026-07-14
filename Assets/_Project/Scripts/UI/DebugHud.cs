@@ -21,9 +21,15 @@ namespace Battlelords.UI
             // Fadenkreuz
             GUI.Label(new Rect(Screen.width / 2f - 5f, Screen.height / 2f - 10f, 20f, 20f), "+");
 
-            GUILayout.BeginArea(new Rect(20f, Screen.height - 140f, 400f, 120f));
-            GUILayout.Label($"HP: {playerHealth.Current:0} / {playerHealth.Max:0}");
+            GUILayout.BeginArea(new Rect(20f, Screen.height - 180f, 400f, 160f));
+            string shield = playerHealth.ShieldCurrent > 0f ? $"  (+{playerHealth.ShieldCurrent:0} Schild)" : "";
+            GUILayout.Label($"HP: {playerHealth.Current:0} / {playerHealth.Max:0}{shield}");
             GUILayout.Label($"Resource: {playerCaster.CurrentResource:0} / {playerCaster.MaxResource:0}");
+
+            if (playerCaster.IsCasting)
+                GUILayout.Label($"Cast: {playerCaster.CastingAbility.displayName} {playerCaster.CastProgress:P0}");
+            else if (playerCaster.IsInterruptLocked)
+                GUILayout.Label($"UNTERBROCHEN! ({playerCaster.InterruptLockoutRemaining:0.0}s)");
 
             GUILayout.BeginHorizontal();
             for (int i = 0; i < playerCaster.Abilities.Length; i++)
